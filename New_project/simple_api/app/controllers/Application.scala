@@ -1,18 +1,21 @@
 package controllers
 
 import models.{EmployeeDetails, ErrorDetail}
-
+import scala.concurrent.ExecutionContext
 import javax.inject._
 import play.api._
+import play.api.libs.json.Json
 import play.api.mvc._
 import play.twirl.api.HtmlFormat
+import repositories.Postrepositories
+
 
 /**
  * This controller creates an `Action` to handle HTTP requests to the
  * application's home page.
  */
 @Singleton
-class Application @Inject()(cc: MessagesControllerComponents) extends MessagesAbstractController(cc) with Logging {
+class Application @Inject()(implicit ec: ExecutionContext,cc: MessagesControllerComponents, postsRepo:Postrepositories) extends MessagesAbstractController(cc) with Logging {
 
   val employee = new EmployeeDetails
 
@@ -28,5 +31,16 @@ class Application @Inject()(cc: MessagesControllerComponents) extends MessagesAb
         case _ => InternalServerError("something went wrong")
       }
   }
+
+  def testmethod = Action {
+    implicit request => Ok("Method is here")
+  }
+
+
+    }
+
+  }
+
+
 
 }

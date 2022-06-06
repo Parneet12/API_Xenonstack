@@ -4,3 +4,7 @@ GET     /ping                               controllers.Application.ping
 
 
 GET     /employees/details/:id              controllers.Application.getEmployeeDetailsByEmployeeId(id:Int)
+
+GET     /callme                             controllers.Application.testmethod
+
+GET     /detail                             controllers.Application.listPosts
