@@ -16,11 +16,7 @@ This example use the following:
 </ul>
 
 ### How to run
-Setup a local mongo server using docker:
-```shell script
-mkdir ~/data
-docker run --name local-mongodb -d -p 27017:27017 -v ~/data:/data/db mongo
-```
+
 Test and run the application:
 ```shell script
 sbt test

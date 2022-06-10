@@ -12,23 +12,25 @@ import reactivemongo.api.commands.WriteResult
 
 
 @Singleton
-class MovieRepository @Inject()(
+class MovieRepository @Inject()(     //@inject is used when we require other component as dependencies
                                  implicit executionContext: ExecutionContext,
                                  reactiveMongoApi: ReactiveMongoApi
                                ) {
   def collection: Future[BSONCollection] = reactiveMongoApi.database.map(db => db.collection("movies"))
 
-  def findAll(limit: Int = 100): Future[Seq[Movie]] = {
+  def findAll(limit: Int = 100): Future[Seq[Movie]] = {       /*Future: Future provides a way to perform many operation
+                                                                        in parallel in an efficient and
+                                                                        non blocking way.*/
 
-    collection.flatMap(
-      _.find(BSONDocument(), Option.empty[Movie])
+    collection.flatMap(                     //in flatmap inner grouping of item is removed and sequence is generated
+      _.find(BSONDocument(), Option.empty[Movie])       //Option.empty signify that it is none but could become something in future using (Some)
         .cursor[Movie](ReadPreference.Primary)
         .collect[Seq](limit, Cursor.FailOnError[Seq[Movie]]())
     )
   }
 
   def findOne(id: BSONObjectID): Future[Option[Movie]] = {
-    collection.flatMap(_.find(BSONDocument("_id" -> id), Option.empty[Movie]).one[Movie])
+    collection.flatMap(_.find(BSONDocument("_id" -> id), Option.empty[Movie]).one[Movie])  // find syntax: find(Selector,projection)
   }
 
   def create(movie: Movie): Future[WriteResult] = {

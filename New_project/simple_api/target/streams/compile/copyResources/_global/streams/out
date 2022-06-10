@@ -1,6 +1,0 @@
-[0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
-[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\acer\REST API\New_project\simple_api\conf\application.conf,C:\Users\acer\REST API\New_project\simple_api\target\scala-2.13\classes\application.conf)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\acer\REST API\New_project\simple_api\conf\logback.xml,C:\Users\acer\REST API\New_project\simple_api\target\scala-2.13\classes\logback.xml)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\acer\REST API\New_project\simple_api\conf\messages,C:\Users\acer\REST API\New_project\simple_api\target\scala-2.13\classes\messages)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\acer\REST API\New_project\simple_api\conf\play.plugins,C:\Users\acer\REST API\New_project\simple_api\target\scala-2.13\classes\play.plugins)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\acer\REST API\New_project\simple_api\conf\routes,C:\Users\acer\REST API\New_project\simple_api\target\scala-2.13\classes\routes)[0m

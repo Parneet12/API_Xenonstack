@@ -8,7 +8,8 @@ import reactivemongo.bson._
 import play.api.libs.json.JodaWrites._
 import play.api.libs.json.JodaReads._
 
-case class Movie(
+case class Movie(                                /*consist of value which are immutable with this case class here contain definition
+                                                   of movie which are required for building this api */
                   _id:Option[BSONObjectID],
                   _creationDate: Option[DateTime],
                   _updateDate: Option[DateTime],
@@ -16,7 +17,7 @@ case class Movie(
                   description:String
                 )
 object Movie{
-  implicit val fmt : Format[Movie] = Json.format[Movie]
+  implicit val fmt : Format[Movie] = Json.format[Movie]     //Json.format[Movie] will inspect movie case class and produce JSON
   implicit object MovieBSONReader extends BSONDocumentReader[Movie] {
     def read(doc: BSONDocument): Movie = {
       Movie(
